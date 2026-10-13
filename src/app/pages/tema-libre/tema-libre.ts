@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-tema-libre',
+  imports: [],
+  templateUrl: './tema-libre.html',
+  styleUrl: './tema-libre.scss',
+})
+export class TemaLibre {
+
+}
