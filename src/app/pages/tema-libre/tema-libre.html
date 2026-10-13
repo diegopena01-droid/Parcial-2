@@ -1,1 +1,139 @@
-<p>tema-libre works!</p>
+<main class="pagina-videojuegos">
+
+  <!-- Encabezado principal -->
+  <section class="hero-videojuegos">
+    <div class="container py-5">
+      <span class="etiqueta-hero">MI PASIÓN POR LOS VIDEOJUEGOS</span>
+
+      <h1 class="display-4 fw-bold mt-3">
+        Explora el mundo gamer
+      </h1>
+
+      <p class="lead descripcion-hero">
+        Descubre aventuras, acción, deportes y estrategia.
+        Un espacio para conocer algunos de los videojuegos más populares.
+      </p>
+
+      <div class="estadisticas mt-4">
+        <div class="estadistica">
+          <strong>{{ videojuegos.length }}</strong>
+          <span>Videojuegos</span>
+        </div>
+
+        <div class="estadistica">
+          <strong>{{ generos.length - 1 }}</strong>
+          <span>Categorías</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <section class="container py-5">
+
+    <div class="d-flex flex-wrap justify-content-between
+                align-items-center gap-3 mb-4">
+      <div>
+        <h2 class="fw-bold mb-1">Catálogo de videojuegos</h2>
+        <p class="text-secondary mb-0">
+          Selecciona una categoría para filtrar los resultados.
+        </p>
+      </div>
+
+      <span class="contador">
+        {{ videojuegosFiltrados.length }} resultados
+      </span>
+    </div>
+
+    <!-- Filtros dinámicos -->
+    <div class="filtros mb-4">
+      @for (genero of generos; track genero) {
+        <button
+          type="button"
+          class="btn"
+          [class.btn-primary]="generoSeleccionado === genero"
+          [class.btn-outline-primary]="generoSeleccionado !== genero"
+          [attr.aria-pressed]="generoSeleccionado === genero"
+          (click)="seleccionarGenero(genero)">
+          {{ genero }}
+        </button>
+      }
+    </div>
+
+    <!-- Tarjetas de videojuegos -->
+    <div class="row g-4">
+
+      @for (juego of videojuegosFiltrados; track juego.titulo) {
+        <div class="col-12 col-md-6 col-xl-4">
+
+          <article class="card tarjeta-juego h-100">
+
+            <div class="portada-juego">
+  <img
+    class="imagen-juego"
+    [src]="juego.imagen"
+    [alt]="'Portada de ' + juego.titulo"
+    loading="lazy"
+  >
+
+  <span class="genero-etiqueta">
+    {{ juego.genero }}
+  </span>
+</div>
+
+            <div class="card-body d-flex flex-column">
+
+              <div class="d-flex justify-content-between
+                          align-items-start gap-2 mb-2">
+                <h3 class="h5 fw-bold mb-0">
+                  {{ juego.titulo }}
+                </h3>
+
+                <span class="calificacion">
+                  ★ {{ juego.calificacion }}
+                </span>
+              </div>
+
+              <p class="text-secondary descripcion-juego">
+                {{ juego.descripcion }}
+              </p>
+
+              <div class="mt-auto">
+                <div class="dato-juego">
+                  <span>Año</span>
+                  <strong>{{ juego.anio }}</strong>
+                </div>
+
+                <div class="dato-juego">
+                  <span>Plataforma</span>
+                  <strong>{{ juego.plataforma }}</strong>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      } @empty {
+        <div class="col-12">
+          <div class="alert alert-info">
+            No hay videojuegos disponibles para esta categoría.
+          </div>
+        </div>
+      }
+
+    </div>
+
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="footer-videojuegos text-center py-4">
+    <div class="container">
+      <p class="mb-1 fw-semibold">Mi catálogo gamer</p>
+      <small>
+        Página temática desarrollada con Angular, TypeScript y Bootstrap 5.
+      </small>
+    </div>
+  </footer>
+
+</main>

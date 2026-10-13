@@ -1,0 +1,219 @@
+.pagina-videojuegos {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #172033;
+}
+
+.hero-videojuegos {
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.35), transparent 30%),
+    linear-gradient(135deg, #0f172a, #172554 60%, #1e3a8a);
+}
+
+.etiqueta-hero {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid rgba(191, 219, 254, 0.4);
+  border-radius: 30px;
+  color: #bfdbfe;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.descripcion-hero {
+  max-width: 650px;
+  color: #dbeafe;
+  line-height: 1.7;
+}
+
+.estadisticas {
+  display: flex;
+  gap: 35px;
+}
+
+.estadistica {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.estadistica strong {
+  font-size: 26px;
+}
+
+.estadistica span {
+  color: #bfdbfe;
+  font-size: 14px;
+}
+
+.contador {
+  padding: 8px 13px;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filtros .btn {
+  border-radius: 25px;
+  padding: 8px 17px;
+  font-size: 14px;
+}
+
+.tarjeta-juego {
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-juego:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+}
+
+.portada-juego {
+  min-height: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.portada-juego::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.emoji-juego {
+  position: relative;
+  z-index: 1;
+  font-size: 65px;
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
+}
+
+.genero-etiqueta {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.65);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.portada-roja {
+  background: linear-gradient(135deg, #7f1d1d, #ef4444);
+}
+
+.portada-verde {
+  background: linear-gradient(135deg, #14532d, #4ade80);
+}
+
+.portada-azul {
+  background: linear-gradient(135deg, #172554, #3b82f6);
+}
+
+.portada-cafe {
+  background: linear-gradient(135deg, #78350f, #d97706);
+}
+
+.portada-dorada {
+  background: linear-gradient(135deg, #713f12, #facc15);
+}
+
+.portada-morada {
+  background: linear-gradient(135deg, #581c87, #a855f7);
+}
+
+.tarjeta-juego .card-body {
+  padding: 20px;
+}
+
+.calificacion {
+  flex-shrink: 0;
+  color: #b45309;
+  background-color: #fef3c7;
+  border-radius: 7px;
+  padding: 5px 7px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.descripcion-juego {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 15px 0 20px;
+}
+
+.dato-juego {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #e2e8f0;
+  font-size: 13px;
+}
+
+.dato-juego span {
+  color: #64748b;
+}
+
+.dato-juego strong {
+  text-align: right;
+}
+
+.footer-videojuegos {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.footer-videojuegos small {
+  color: #cbd5e1;
+}
+
+@media (max-width: 576px) {
+  .hero-videojuegos h1 {
+    font-size: 2.2rem;
+  }
+
+  .estadisticas {
+    gap: 25px;
+  }
+}
+.portada-juego {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background-color: #172554;
+}
+
+.imagen-juego {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-juego:hover .imagen-juego {
+  transform: scale(1.05);
+}
