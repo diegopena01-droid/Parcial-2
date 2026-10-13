@@ -1,0 +1,12 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <span class="badge text-bg-primary mb-2">{{ tema().categoria }}</span>
+    <h3 class="h5">{{ tema().titulo }}</h3>
+    <p class="text-muted">{{ tema().descripcion }}</p>
+    <ul class="mb-0 ps-3">
+      @for (item of tema().conocimientos; track item) {
+        <li>{{ item }}</li>
+      }
+    </ul>
+  </div>
+</div>

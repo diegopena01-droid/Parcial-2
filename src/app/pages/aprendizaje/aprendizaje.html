@@ -1,1 +1,86 @@
-<p>aprendizaje works!</p>
+<header class="mb-4">
+  <h1 class="h2">Aprendizaje del curso</h1>
+  <p class="text-muted mb-0">
+    Resumen de lo que he aprendido en Programación en Ambiente Web I.
+  </p>
+</header>
+
+<!-- SECCIÓN 1: TEMAS -->
+<section class="mb-5">
+  <h2 class="h4 mb-3">Temas estudiados</h2>
+
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    @for (cat of categorias; track cat) {
+      <button
+        type="button"
+        class="btn btn-sm"
+        [class.btn-primary]="categoriaSeleccionada() === cat"
+        [class.btn-outline-primary]="categoriaSeleccionada() !== cat"
+        (click)="seleccionar(cat)"
+      >
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <p class="text-muted">Mostrando {{ temasFiltrados().length }} temas</p>
+
+  <div class="row g-3">
+    @for (tema of temasFiltrados(); track tema.id) {
+      <div class="col-md-6 col-lg-4">
+        <app-tarjeta-tema [tema]="tema" />
+      </div>
+    } @empty {
+      <p>No hay temas en esta categoría.</p>
+    }
+  </div>
+</section>
+
+<!-- SECCIÓN 2: TECNOLOGÍAS -->
+<section class="mb-5">
+  <h2 class="h4 mb-3">Tecnologías utilizadas</h2>
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th>Tecnología</th>
+          <th>¿Para qué la usé?</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (tec of tecnologias; track tec.nombre) {
+          <tr>
+            <td class="fw-bold">{{ tec.nombre }}</td>
+            <td>{{ tec.uso }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECCIÓN 3: PROYECTOS -->
+<section class="mb-4">
+  <h2 class="h4 mb-3">Proyectos y actividades</h2>
+  <ul class="list-group">
+    @for (proyecto of proyectos; track proyecto.nombre) {
+      <li class="list-group-item">
+        <div class="d-flex justify-content-between align-items-start">
+          <h3 class="h6 mb-1">{{ proyecto.nombre }}</h3>
+          <div>
+            <span class="badge text-bg-secondary">{{ proyecto.tipo }}</span>
+            @if (proyecto.enPareja) {
+              <span class="badge text-bg-info ms-1">En pareja</span>
+            }
+          </div>
+        </div>
+        <p class="mb-2">{{ proyecto.descripcion }}</p>
+        <div class="d-flex flex-wrap gap-1">
+          @for (tec of proyecto.tecnologias; track tec) {
+            <span class="badge text-bg-primary">{{ tec }}</span>
+          }
+        </div>
+      </li>
+    }
+  </ul>
+</section>
