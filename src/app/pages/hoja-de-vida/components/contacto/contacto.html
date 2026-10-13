@@ -1,0 +1,19 @@
+<section class="card shadow-sm mb-4">
+  <div class="card-header fw-bold">Contacto</div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Correo:</strong> {{ datos().correo }}</li>
+    <li class="list-group-item"><strong>Teléfono:</strong> {{ datos().telefono }}</li>
+    <li class="list-group-item"><strong>Ciudad:</strong> {{ datos().ciudad }}</li>
+
+    @if (datos().github; as github) {
+      <li class="list-group-item">
+        <a [href]="github" target="_blank" rel="noopener">GitHub</a>
+      </li>
+    }
+    @if (datos().linkedin; as linkedin) {
+      <li class="list-group-item">
+        <a [href]="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </li>
+    }
+  </ul>
+</section>

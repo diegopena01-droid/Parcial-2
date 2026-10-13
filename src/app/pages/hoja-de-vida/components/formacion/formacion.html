@@ -1,0 +1,15 @@
+<section class="card shadow-sm mb-4">
+  <div class="card-header fw-bold">Formación académica</div>
+  <div class="card-body">
+    @for (estudio of estudios(); track estudio.titulo) {
+      <div class="mb-3">
+        <h3 class="h6 mb-0">{{ estudio.titulo }}</h3>
+        <p class="mb-0 text-primary">{{ estudio.institucion }}</p>
+        <small class="text-muted">{{ estudio.periodo }}</small>
+        @if (estudio.descripcion) {
+          <p class="mb-0 mt-1">{{ estudio.descripcion }}</p>
+        }
+      </div>
+    }
+  </div>
+</section>

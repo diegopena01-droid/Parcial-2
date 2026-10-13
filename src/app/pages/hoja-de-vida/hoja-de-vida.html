@@ -1,1 +1,12 @@
-<p>hoja-de-vida works!</p>
+<app-perfil [datos]="perfil" />
+
+<div class="row">
+  <div class="col-lg-4">
+    <app-contacto [datos]="contacto" />
+    <app-habilidades [habilidades]="habilidades" />
+  </div>
+  <div class="col-lg-8">
+    <app-formacion [estudios]="estudios" />
+    <app-experiencia [experiencias]="experiencias" />
+  </div>
+</div>

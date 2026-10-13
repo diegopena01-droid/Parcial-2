@@ -1,0 +1,18 @@
+<section class="card shadow-sm mb-4">
+  <div class="card-header fw-bold">Experiencia y proyectos</div>
+  <div class="card-body">
+    @for (item of experiencias(); track item.titulo) {
+      <div class="mb-4">
+        <h3 class="h6 mb-0">{{ item.titulo }}</h3>
+        <p class="mb-0 text-primary">{{ item.lugar }}</p>
+        <small class="text-muted">{{ item.periodo }}</small>
+        <p class="mt-1">{{ item.descripcion }}</p>
+        <div class="d-flex flex-wrap gap-1">
+          @for (tec of item.tecnologias; track tec) {
+            <span class="badge text-bg-primary">{{ tec }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
